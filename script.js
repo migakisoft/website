@@ -8,6 +8,7 @@ const translations = {
     navServices: "Services",
     navMethod: "Method",
     navPrinciple: "Principle",
+    navContact: "Contact",
     heroEyebrow: "Software quality, refined.",
     heroTitle: "Your software works. We make sure it is engineered to last.",
     heroSummary: "Migakisoft evaluates, validates, and improves existing software products—using senior engineering judgment and clear evidence.",
@@ -29,6 +30,11 @@ const translations = {
     principleEyebrow: "Our principle",
     principleTitle: "Enter. Understand. Improve. Leave.",
     principleText: "We do not sell permanent dependency. We leave clients with better software and a stronger engineering system.",
+    contactEyebrow: "Contact",
+    contactTitle: "Have software worth polishing?",
+    contactText: "Tell us where your software is today and where it needs to go. We will start with a focused conversation.",
+    contactCta: "Email Migakisoft",
+    contactSubject: "[Migakisoft] Website inquiry",
     footerLine: "Make it work. Make it clean. Make it fast."
   },
   ja: {
@@ -40,6 +46,7 @@ const translations = {
     navServices: "サービス",
     navMethod: "メソッド",
     navPrinciple: "原則",
+    navContact: "お問い合わせ",
     heroEyebrow: "ソフトウェアの品質を、磨き上げる。",
     heroTitle: "動くソフトウェアを、長く育てられる品質へ。",
     heroSummary: "Migakisoftは、既存のソフトウェアを評価・検証し、必要に応じて改善します。シニアエンジニアの判断と明確な根拠で、次の成長段階に備えます。",
@@ -61,6 +68,11 @@ const translations = {
     principleEyebrow: "私たちの原則",
     principleTitle: "入り、理解し、改善し、去る。",
     principleText: "永続的な依存関係は売りません。より良いソフトウェアと、より強いエンジニアリング体制を残します。",
+    contactEyebrow: "お問い合わせ",
+    contactTitle: "磨く価値のあるソフトウェアがありますか。",
+    contactText: "現在の課題と、目指す状態をお聞かせください。まずは焦点を絞った対話から始めます。",
+    contactCta: "Migakisoftにメールする",
+    contactSubject: "[Migakisoft] Webサイトからのお問い合わせ",
     footerLine: "動かす。整える。速くする。"
   },
   es: {
@@ -72,6 +84,7 @@ const translations = {
     navServices: "Servicios",
     navMethod: "Método",
     navPrinciple: "Principio",
+    navContact: "Contacto",
     heroEyebrow: "Calidad de software, refinada.",
     heroTitle: "Tu software funciona. Nosotros lo preparamos para durar.",
     heroSummary: "Migakisoft evalúa, valida y mejora productos de software existentes mediante criterio sénior de ingeniería y evidencias claras.",
@@ -93,6 +106,11 @@ const translations = {
     principleEyebrow: "Nuestro principio",
     principleTitle: "Entrar. Entender. Mejorar. Salir.",
     principleText: "No vendemos dependencia permanente. Dejamos al cliente con mejor software y un sistema de ingeniería más sólido.",
+    contactEyebrow: "Contacto",
+    contactTitle: "¿Tienes software que merece ser pulido?",
+    contactText: "Cuéntanos dónde está hoy tu software y hasta dónde necesita llegar. Empezaremos con una conversación enfocada.",
+    contactCta: "Escribir a Migakisoft",
+    contactSubject: "[Migakisoft] Consulta desde la web",
     footerLine: "Haz que funcione. Hazlo limpio. Hazlo rápido."
   }
 };
@@ -129,6 +147,10 @@ function setLanguage(language) {
   document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
     const key = element.dataset.i18nAriaLabel;
     if (copy[key]) element.setAttribute("aria-label", copy[key]);
+  });
+
+  document.querySelectorAll("[data-contact-email]").forEach((element) => {
+    element.href = `mailto:info@migakisoft.com?subject=${encodeURIComponent(copy.contactSubject)}`;
   });
 
   languageButtons.forEach((button) => {
